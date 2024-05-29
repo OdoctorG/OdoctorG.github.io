@@ -5,10 +5,13 @@ import './index.css'
 
 import RouteManager from './Router';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const root = ReactDOM.createRoot(document.getElementById('root')!)
+
+root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
 )
 
-ReactDOM.createRoot(document.getElementById('root')!).render(<RouteManager />);
+root.render(<RouteManager />);
+

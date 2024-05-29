@@ -1,41 +1,32 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import bankIDlogo from './assets/BankID_logo_white.svg'
 import './App.css'
+import { AppData } from './AppData';
+
 
 function App() {
+  
+
   const [count, setCount] = useState(0)
-
+  //var connect_string = "https://link.tink.com/1.0/transactions/connect-accounts?client_id=bfdc43265bac4643bed9e8607d47c170&redirect_uri=http://localhost:5173/callback&market=SE" 
+  var connect_string = "https://link.tink.com/1.0/transactions/connect-accounts/?client_id=39e981ab00b042b0ae4731e51619079b&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2Fcallback&market=SE&locale=en_US"
+  connect_string +=  "&state=" + AppData.getSessionId()
   return (
-
     <>
       <div>
-        <a href="https://link.tink.com/1.0/transactions/connect-accounts?client_id=bfdc43265bac4643bed9e8607d47c170&redirect_uri=http://localhost:5173/callback&market=SE" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a href={connect_string} target="_blank" className="login">
+          <p> <h2>Log In with BankID </h2> </p>
+          <p> <img src={bankIDlogo} className="logo" alt="Vite logo" /> </p>
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count * 2)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
+      <h1>Get a list of transactions from your bank!</h1>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Using the Tink API this website is able to fetch your bank details! Its totally safe!
       </p>
     </>
   )
 }
-
-
-
-
 
 export default App
 
