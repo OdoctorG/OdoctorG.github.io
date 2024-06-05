@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 90vw;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -40,53 +40,193 @@
   padding: 2em;
 }
 
+.break {
+  flex-basis: 100%;
+  height: 1px;
+  background-color: #444; /* Separator line */
+  margin: 10px 0;
+}
+
+
+
 .read-the-docs {
   color: #888;
 }
 
+
 .transaction-item {
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
   border: 1px solid #ccc;
-  padding: 5px;
-  margin-bottom: 5px;
-  border-radius: 5px;
-  background-color: #474747;
+  background-color: #1e1e1e; /* Dark card background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+  color: #fff;
   display: flex;
+  flex-wrap: wrap;
   font-size: 1em;
   font-weight: 700;
   font-family: inherit;
+  transition: transform 0.1s, box-shadow 0.1s; /* Smooth transition for hover effect */
+  opacity: 0; /* Start fully hidden */
 }
 
 .transaction-item:hover {
-  filter: drop-shadow(0 0 1em #646cffaa);
+  transform: translateY(-3px); /* Move the item slightly upwards */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 1); /* Increase the shadow for a 'lifted' effect */
 }
 
+.transaction-item.new-item {
+  animation: fold-in 0.3s ease-out forwards;
+}
+
+@keyframes fold-in {
+  0% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
+
+
 .transaction-item p {
-  margin: 5px 0;
+  margin: 0px 0;
 }
 
 .transaction-name {
-  margin: 0;
+  flex: 1;
+  font-size: 1.1;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.transaction-date {
   flex: 1;
   text-align: left;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: #bbb; /* Lighter color for less important info */
+}
+
+.transaction-category {
+  flex: 1;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: #bbb; /* Lighter color for less important info */
 }
 
 .transaction-amount {
   margin: 0;
   flex: 1;
+  font-size: 1.1;
   color: inherit; /* Reset color */
 }
 
 
 .transaction-amount.positive {
-  color: rgb(97, 214, 97); /* Set color for positive amounts */
+  color: #4CAF50; /* Set color for positive amounts */
 }
 
 .transaction-amount.negative {
-  color: rgb(224, 90, 90); /* Set color for negative amounts */
+  color: #F44336; /* Set color for negative amounts */
 }
 
+.container_trans {
+  display: flex;
+  flex-direction: column;
+  height: 90vh; /* Full viewport height */
+}
+
+.container_trans hr {
+  width: 100%;
+  height: 0; 
+  margin: 0; 
+  border: 0; 
+}
+
+.graph_container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0 auto;
+  padding: 10px;
+  height: 90vh;
+}
+
+.overview_container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  overflow: visible;
+}
 
 .transactions-list {
   max-width: 600px;
+  flex-grow: 1;
+  overflow-y: auto;
   margin: 0 auto;
+  padding: 10px;
+  min-height: 400px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.years {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.years button {
+  min-width: 100px; /* Ensure buttons have consistent width */
+  flex-shrink: 0;   /* Prevent buttons from shrinking */
+}
+
+.years span {
+  flex-grow: 1;     /* Make the span grow to occupy available space */
+  font-size: 1em;
+  font-weight: 700;
+  text-align: center; /* Center the text inside the span */
+}
+
+.months {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+button {
+  padding: 0px 0px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.active {
+  background-color: #4CAF50;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.hidden {
+  visibility: hidden; /* Hide the button but keep the space */
 }

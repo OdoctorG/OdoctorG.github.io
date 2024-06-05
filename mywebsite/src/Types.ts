@@ -95,14 +95,20 @@ export enum Status {
 
 export interface Types {
     financialInstitutionTypeCode: string;
-    type: Type;
+    type: string;
 }
 
-export enum Type {
-    UNDEFINED = "UNDEFINED",
-    CREDIT_CARD = "CREDIT_CARD",
-    PAYMENT = "PAYMENT",
-    WITHDRAWAL = "WITHDRAWAL",
-    DEFAULT = "DEFAULT",
-    TRANSFER = "TRANSFER",
+export type ListCategoriesResponse = Category[]
+
+export interface Category {
+    code: string;
+    defaultChild: boolean;
+    id: string;
+    parent?: string; //optional
+    primaryName?: string; //optional
+    searchTerms?: string; //optional
+    secondaryName?: string; //optional
+    sortOrder: number;
+    type: string;
+    typeName: string;
 }

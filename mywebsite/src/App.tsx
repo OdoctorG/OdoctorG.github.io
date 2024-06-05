@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
 import bankIDlogo from './assets/BankID_logo_white.svg'
 import './App.css'
 import { AppData } from './AppData';
@@ -9,8 +8,8 @@ function App() {
   
 
   const [count, setCount] = useState(0)
-  //var connect_string = "https://link.tink.com/1.0/transactions/connect-accounts?client_id=bfdc43265bac4643bed9e8607d47c170&redirect_uri=http://localhost:5173/callback&market=SE" 
-  var connect_string = "https://link.tink.com/1.0/transactions/connect-accounts/?client_id=39e981ab00b042b0ae4731e51619079b&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2Fcallback&market=SE&locale=en_US"
+  var connect_string = "https://link.tink.com/1.0/transactions/connect-accounts?client_id=bfdc43265bac4643bed9e8607d47c170&redirect_uri=http://localhost:5173/callback&market=SE" 
+  //var connect_string = "https://link.tink.com/1.0/transactions/connect-accounts/?client_id=39e981ab00b042b0ae4731e51619079b&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2Fcallback&market=SE&locale=en_US"
   connect_string +=  "&state=" + AppData.getSessionId()
   return (
     <>
