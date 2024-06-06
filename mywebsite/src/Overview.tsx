@@ -161,12 +161,10 @@ const Overview: React.FC = () => {
                 />
                 
             </div>
-            <div className="graph_container">
-                <ExpensesGraph 
-                    transactions={transactions} 
-                    selectedYear={selectedYear}    
-                />
-            </div>
+            <ExpensesGraph 
+                transactions={transactions} 
+                selectedYear={selectedYear}    
+            />
         </div>
     );
     

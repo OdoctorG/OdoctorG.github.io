@@ -202,10 +202,10 @@ const ExpensesGraph: React.FC<ExpensesGraphProps> = ({ transactions, selectedYea
 
     return (
         <div className="graph_container">
-        <header>
+        <header className='dumbtitles'>
             <h2>Expenses/income for {selectedYear}</h2>
         </header>
-        <ResponsiveContainer width="100%" aspect={1.5}>
+        <ResponsiveContainer aspect={1.5} className="barchart">
         <BarChart
             data={data}
             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
@@ -221,11 +221,11 @@ const ExpensesGraph: React.FC<ExpensesGraphProps> = ({ transactions, selectedYea
             <Bar dataKey="income" fill="#4CAF50" />
         </BarChart>
         </ResponsiveContainer>
-        <header>
+        <header className='dumbtitles'>
             <h2>Expenses per category ({selectedYear})</h2>
         </header>
         
-        <ResponsiveContainer width="100%" aspect={1}>
+        <ResponsiveContainer aspect={1} className="piechart">
         <Treemap
             data={piedata}
             dataKey="value"

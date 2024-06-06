@@ -1,5 +1,5 @@
 #root {
-  max-width: 90vw;
+  /*max-width: 90vw;*/
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -152,10 +152,22 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   margin: 0 auto;
-  padding: 10px;
-  height: 90vh;
+  padding: 20px;
+  width: 30vw;
+}
+
+.barchart {
+  flex:2;
+}
+
+.piechart {
+  flex: 1;
+}
+
+.dumbtitles {
+  display: flex;
+  flex: 0.1;
 }
 
 .overview_container {
