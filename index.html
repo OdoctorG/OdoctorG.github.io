@@ -5,10 +5,25 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Super Budget</title>
-    <script type="module" crossorigin src="/assets/index-DZLC9MFc.js"></script>
+    <script type="module" crossorigin src="/assets/index-DZc7tQ-J.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-B7slj8E1.css">
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Redirect logic
+
+      (function() {
+        var path = window.location.pathname;
+        var hash = window.location.hash;
+        var search = window.location.search;
+
+        if (!hash && path !== '/') {
+          var newUrl = window.location.origin + '/#' + path + search;
+          window.location.replace(newUrl);
+        }
+      })();
+
+    </script>
   </body>
 </html>
