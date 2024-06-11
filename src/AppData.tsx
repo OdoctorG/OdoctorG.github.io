@@ -59,6 +59,6 @@ function getCookie(name: string): string | null {
 
 // Utility function to set a cookie value
 function setCookie(name: string, value: string): void {
-  document.cookie = `${name}=${value}; path=/`;
+  document.cookie = `${name}=${value}; path=/; SameSite=None; Secure`;
 }
 
