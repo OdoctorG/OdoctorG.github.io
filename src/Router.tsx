@@ -1,18 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 import CallbackPage from './pages/CallbackPage';
-import Overview from './pages/Overview'
+import Overview from './pages/Overview';
+
+// const RouteManager: React.FC = () => {
+//     return (
+//         <HashRouter>
+//             <Routes>
+//                 <Route path="/" Component={App} />
+//                 <Route path="/callback" Component={CallbackPage} />
+//                 <Route path="/overview" Component={Overview} />
+//             </Routes>
+//         </HashRouter>
+//     );
+// };
 
 const RouteManager: React.FC = () => {
     return (
-        <Router>
+        <HashRouter>
             <Routes>
-                <Route path="/" Component={App} />
-                <Route path="/callback" Component={CallbackPage} />
-                <Route path="/overview" Component={Overview} />
+                <Route path="/" element={<App />} />
+                <Route path="/callback" element={<CallbackPage />} />
+                <Route path="/overview" element={<Overview />} />
             </Routes>
-        </Router>
+        </HashRouter>
     );
 };
 

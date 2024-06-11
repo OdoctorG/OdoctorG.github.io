@@ -81,7 +81,7 @@ const CallbackPage: React.FC = () => {
                 setCounter(prevCounter => {
                 if (prevCounter === 1) {
                     clearInterval(timer);
-                    window.location.href = '/overview';
+                    window.location.href = '/#/overview';
                 }
                 return prevCounter - 1;
                 });
