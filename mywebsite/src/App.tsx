@@ -4,17 +4,25 @@ import './App.css'
 import { AppData } from './AppData';
 
 
+function connect(): string{
+  var connect_string = "https://link.tink.com/1.0/transactions/connect-accounts?client_id=bfdc43265bac4643bed9e8607d47c170&redirect_uri=http://localhost:5173/callback&market=SE" 
+  //var connect_string = "https://link.tink.com/1.0/transactions/connect-accounts/?client_id=39e981ab00b042b0ae4731e51619079b&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2Fcallback&market=SE&locale=en_US"
+  connect_string +=  "&state=" + AppData.getSessionId()
+  if (AppData.getAccessToken() != null){
+    connect_string = "http://localhost:5173/overview"
+  }
+  return connect_string
+}
+
 function App() {
   
 
   const [count, setCount] = useState(0)
-  var connect_string = "https://link.tink.com/1.0/transactions/connect-accounts?client_id=bfdc43265bac4643bed9e8607d47c170&redirect_uri=http://localhost:5173/callback&market=SE" 
-  //var connect_string = "https://link.tink.com/1.0/transactions/connect-accounts/?client_id=39e981ab00b042b0ae4731e51619079b&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2Fcallback&market=SE&locale=en_US"
-  connect_string +=  "&state=" + AppData.getSessionId()
+  
   return (
     <>
       <div>
-        <a href={connect_string} target="_blank" className="login">
+        <a href={connect()} target="_blank" className="login">
           <p> <h2>Log In with BankID </h2> </p>
           <p> <img src={bankIDlogo} className="logo" alt="Vite logo" /> </p>
         </a>

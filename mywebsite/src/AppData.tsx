@@ -12,8 +12,9 @@ export class AppData {
     return sessionId;
   }
 
-  static setAccessToken(token: string): void {
-    setCookie('access_token', token)
+  static setAccessToken(token: AuthResponse): void {
+    token.created = new Date().getTime()
+    setCookie('access_token', JSON.stringify(token))
   }
 
   static getAccessToken(): AuthResponse | null {
@@ -21,8 +22,14 @@ export class AppData {
     if (cookie == null){
       return null
     }
+    let auth: AuthResponse = JSON.parse(cookie)
+    if (auth.created != null){
+      const timeNow = new Date().getTime()
+      if(auth.created + auth.expires_in*1000 < timeNow){
+        return null
+      }
+    }
     return JSON.parse(cookie)
-    //return getCookie('access_token') // This should probably check if the token is valid first. And if it soon expires automatically fetch a new token.
   }
 
   static setLocal(name: string, value: string): void {

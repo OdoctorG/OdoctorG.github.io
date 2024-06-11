@@ -8,7 +8,7 @@ import Tabs from './Tabs';
 import { ListTransactionsResponse, Transaction } from './Types';
 import { ListCategoriesResponse, Category } from './Types';
 
-const API_URL = 'http://localhost:8000/';
+const API_URL = 'https://main.websited26df17a-review.myrnastet.coherencesites.com/';
 
 export const fetchTransactions = async (accessToken: string): Promise<ListTransactionsResponse> => {
     const response = await fetch(API_URL + 'transactions', {

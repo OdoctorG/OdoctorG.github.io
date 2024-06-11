@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react'
 // ResponseData of /auth
 export interface AuthResponse {
     access_token: string,
-    expires_in: number,
+    expires_in: number, // Time left in seconds
+    created?: number, // Creation date of the token, milliseconds since utc
     id_hint: string,
     refreshToken: string,
     scope: string,
@@ -14,7 +15,7 @@ export interface AuthResponse {
 
 function getAuth(code: string): Promise<AuthResponse | null> {
     // URL of the API endpoint
-    const baseUrl = 'http://127.0.0.1:8000/auth/';
+    const baseUrl = 'https://main.websited26df17a-review.myrnastet.coherencesites.com/auth/';
     // Construct the query string
     const payload = {
         code: code
@@ -102,7 +103,7 @@ const CallbackPage: React.FC = () => {
                 .then(data => {
                     setAuthData(data);
                     if (data !== null) {
-                        AppData.setAccessToken(JSON.stringify(data));
+                        AppData.setAccessToken(data);
                         startRedirect();
                     }
                 })
