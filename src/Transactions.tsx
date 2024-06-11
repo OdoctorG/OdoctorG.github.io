@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Transaction } from './Types'; 
 
 interface TransactionProps {
@@ -33,7 +33,7 @@ interface TransactionsListProps {
 }
 
 const TransactionsList: React.FC<TransactionsListProps> = ({ transactions, selectedMonth, selectedYear }) => {
-    const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+    //const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
     const listRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {

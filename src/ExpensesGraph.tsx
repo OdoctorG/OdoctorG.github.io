@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Cell, Treemap,  ResponsiveContainer} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, Treemap,  ResponsiveContainer} from 'recharts';
 import { Transaction } from './Types';
 
 function parseDateFromString(dateString: string): Date | null {
@@ -35,24 +35,24 @@ function parseDateFromString(dateString: string): Date | null {
 
 
 // Custom label rendering function for pie chart
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name }: any) => {
-    const RADIAN = Math.PI / 180;
-    const radius = innerRadius + (outerRadius - innerRadius) * 1.1 + 40;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+// const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name }: any) => {
+//     const RADIAN = Math.PI / 180;
+//     const radius = innerRadius + (outerRadius - innerRadius) * 1.1 + 40;
+//     const x = cx + radius * Math.cos(-midAngle * RADIAN);
+//     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-    return (
-    <g>
-        <rect x={x - 30} y={y - 20} width={60} height={40} fill="black" opacity={0.5} rx={5} ry={5} />
-        <text x={x} y={y - 5} fill="white" textAnchor="middle" dominantBaseline="central" fontSize={12} fontWeight="bold">
-        {name}
-        </text>
-        <text x={x} y={y + 15} fill="white" textAnchor="middle" dominantBaseline="central" fontSize={12} fontWeight="bold">
-        {`${(percent * 100).toFixed(0)}%`}
-        </text>
-    </g>
-    );
-};
+//     return (
+//     <g>
+//         <rect x={x - 30} y={y - 20} width={60} height={40} fill="black" opacity={0.5} rx={5} ry={5} />
+//         <text x={x} y={y - 5} fill="white" textAnchor="middle" dominantBaseline="central" fontSize={12} fontWeight="bold">
+//         {name}
+//         </text>
+//         <text x={x} y={y + 15} fill="white" textAnchor="middle" dominantBaseline="central" fontSize={12} fontWeight="bold">
+//         {`${(percent * 100).toFixed(0)}%`}
+//         </text>
+//     </g>
+//     );
+// };
 
 const COLORS = [
     '#0088FE', '#00C49F', '#FFBB28', '#FF8042',
@@ -233,7 +233,7 @@ const ExpensesGraph: React.FC<ExpensesGraphProps> = ({ transactions, selectedYea
             fill="#8884d8"
             content={<CustomContent />}
         >
-            {piedata.map((entry, index) => (
+            {piedata.map((_entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
             <Tooltip

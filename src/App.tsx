@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import bankIDlogo from './assets/BankID_logo_white.svg'
 import './App.css'
 import { AppData } from './AppData';
@@ -15,9 +14,6 @@ function connect(): string{
 }
 
 function App() {
-  
-
-  const [count, setCount] = useState(0)
   
   return (
     <>

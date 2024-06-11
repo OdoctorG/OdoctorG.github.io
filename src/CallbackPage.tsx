@@ -42,7 +42,7 @@ function getAuth(code: string): Promise<AuthResponse | null> {
 }
 
 const CallbackPage: React.FC = () => {
-    const [authData, setAuthData] = useState<AuthResponse | null>(null);
+    const [, setAuthData] = useState<AuthResponse | null>(null);
     const [isCounting, setIsCounting] = useState(false);
     const [message, setMessage] = useState<string | null>("message"); 
     const [code, setCode] = useState<string | null>(null);
