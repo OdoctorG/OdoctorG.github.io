@@ -1,4 +1,4 @@
-import {AuthResponse} from "./CallbackPage";
+import {AuthResponse} from "./pages/CallbackPage";
 
 export class AppData {
   static getSessionId(): string {

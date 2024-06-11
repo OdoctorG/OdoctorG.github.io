@@ -1,12 +1,12 @@
 import React from 'react';
-import { AppData } from './AppData';
+import { AppData } from '../AppData';
 import { useState, useEffect } from 'react'
 
-import ExpensesGraph from './ExpensesGraph';
-import TransactionsList from './Transactions'; // Assuming TransactionsList component is in TransactionsList.tsx
-import Tabs from './Tabs';
-import { ListTransactionsResponse, Transaction } from './Types';
-import { ListCategoriesResponse } from './Types';
+import ExpensesGraph from '../ExpensesGraph';
+import TransactionsList from '../Transactions'; // Assuming TransactionsList component is in TransactionsList.tsx
+import Tabs from '../Tabs';
+import { ListTransactionsResponse, Transaction } from '../Types';
+import { ListCategoriesResponse } from '../Types';
 
 const API_URL = 'https://main.websited26df17a-review.myrnastet.coherencesites.com/';
 

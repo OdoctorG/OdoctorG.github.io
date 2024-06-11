@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppData } from './AppData';
+import { AppData } from '../AppData';
 import { useState, useEffect } from 'react'
 
 // ResponseData of /auth
