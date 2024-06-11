@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <meta http-equiv="refresh" content="1;url=/#">
+  <script type="text/javascript">
+    // Capture the current path
+    var path = window.location.pathname;
+    var hash = '#';
+
+    // Create the new URL
+    var newUrl = window.location.origin + '/' + hash + path;
+
+    // Redirect to the new URL
+    window.location.replace(newUrl);
+  </script>
+</head>
+<body>
+  <h1>Redirecting...</h1>
+  <p>If you are not redirected automatically, follow this <a id="redirectLink">link</a>.</p>
+  <script type="text/javascript">
+    document.getElementById('redirectLink').href = newUrl;
+  </script>
+</body>
+</html>
